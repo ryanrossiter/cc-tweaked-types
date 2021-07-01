@@ -72,69 +72,100 @@ declare namespace fs {
      * @return[2] string | nil A message explaining why the file cannot be opened.
      * @throws If an invalid mode was specified.
      */
-    function open(path: string, mode: string): [FileHandle] | [null, string | null];
+    function open<Mode extends "r" | "w" | "a", Binary extends "b" | "">(path: string, mode: `${Mode}${Binary}`): [Mode extends "r" ? (Binary extends "b" ? BinaryReadHandle : ReadHandle) : (Binary extends "b" ? BinaryWriteHandle : WriteHandle)] | [null, string | null];
 
 }
 
-declare class FileHandle {
-    /**
-     * Read a line from the file.
-     * ______________________________________________________________________________________________________________
-     * @param withTrailing? boolean Whether to include the newline characters with the returned string. Defaults to false.
-     * @return string | nil The read line or nil if at the end of the file.
-     * @throws If the file has been closed.
-     */
-    readLine(withTrailing?: boolean): string | null;
+// declare class FileHandle {
+//     /**
+//      * Read a line from the file.
+//      * ______________________________________________________________________________________________________________
+//      * @param withTrailing? boolean Whether to include the newline characters with the returned string. Defaults to false.
+//      * @return string | nil The read line or nil if at the end of the file.
+//      * @throws If the file has been closed.
+//      */
+//     readLine(withTrailing?: boolean): string | null;
 
-    /**
-     * Read the remainder of the file.
-     * ______________________________________________________________________________________________________________
-     * @return nil | string The remaining contents of the file, or nil if we are at the end.
-     * @throws If the file has been closed.
-     */
-    readAll(): string | null;
+//     /**
+//      * Read the remainder of the file.
+//      * ______________________________________________________________________________________________________________
+//      * @return nil | string The remaining contents of the file, or nil if we are at the end.
+//      * @throws If the file has been closed.
+//      */
+//     readAll(): string | null;
 
-    /**
-     * Read a number of characters from this file.
-     * ______________________________________________________________________________________________________________
-     * @param count? number The number of characters to read, defaulting to 1.
-     * @return string | nil The read characters, or nil if at the of the file.
-     * @throws When trying to read a negative number of characters.
-     * @throws If the file has been closed.
-     */
-    read(count: number): string | null;
+//     /**
+//      * Read a number of characters from this file.
+//      * ______________________________________________________________________________________________________________
+//      * @param count? number The number of characters to read, defaulting to 1.
+//      * @return string | nil The read characters, or nil if at the of the file.
+//      * @throws When trying to read a negative number of characters.
+//      * @throws If the file has been closed.
+//      */
+//     read(count: number): string | null;
 
-    /**
-     * Close this file, freeing any resources it uses.
-     *
-     * Once a file is closed it may no longer be read or written to.
-     * ______________________________________________________________________________________________________________
-     * @throws If the file has already been closed.
-     */
+//     /**
+//      * Close this file, freeing any resources it uses.
+//      *
+//      * Once a file is closed it may no longer be read or written to.
+//      * ______________________________________________________________________________________________________________
+//      * @throws If the file has already been closed.
+//      */
+//     close(): void;
+
+//     /**
+//      * Write a string of characters to the file.
+//      * ______________________________________________________________________________________________________________
+//      * @param value The value to write to the file.
+//      * @throws If the file has been closed.
+//      */
+//     write(value: any): void;
+
+//     /**
+//      * Write a string of characters to the file, following them with a new line character.
+//      * ______________________________________________________________________________________________________________
+//      * @param  value The value to write to the file.
+//      * @throws If the file has been closed.
+//      */
+//     writeLine(value: any): void;
+
+//     /**
+//      * Save the current file without closing it.
+//      * ______________________________________________________________________________________________________________
+//      * @throws If the file has been closed.
+//      */
+//     flush(): void;
+
+// }
+
+declare class ReadHandle {
+    readLine(withTrailing?: boolean): string | undefined;
+    readAll(): string | undefined;
+    read(count?: number): string | undefined;
     close(): void;
-
-    /**
-     * Write a string of characters to the file.
-     * ______________________________________________________________________________________________________________
-     * @param value The value to write to the file.
-     * @throws If the file has been closed.
-     */
-    write(value: any): void;
-
-    /**
-     * Write a string of characters to the file, following them with a new line character.
-     * ______________________________________________________________________________________________________________
-     * @param  value The value to write to the file.
-     * @throws If the file has been closed.
-     */
-    writeLine(value: any): void;
-
-    /**
-     * Save the current file without closing it.
-     * ______________________________________________________________________________________________________________
-     * @throws If the file has been closed.
-     */
-    flush(): void;
-
 }
 
+declare class BinaryReadHandle {
+    read(count: number): string | undefined;
+    read(): number | undefined;
+    readAll(): string | undefined;
+    readLine(withTrailing?: boolean): string | undefined;
+    close(): void;
+    /** @tupleReturn */
+    seek(whence?: "set" | "cur" | "end", offset?: number): [number] | [undefined, string];
+}
+
+declare class WriteHandle {
+    write(value: string): void;
+    writeLine(value: string): void;
+    flush(): void;
+    close(): void;
+}
+
+declare class BinaryWriteHandle {
+    write(v: number | string): void;
+    flush(): void;
+    /** @tupleReturn */
+    seek(whence?: "set" | "cur" | "end", offset?: number): [number] | [undefined, string];
+    close(): void;
+}

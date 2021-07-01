@@ -32,9 +32,21 @@ declare namespace textutils {
      * @return[1] nil If the object could not be deserialised.
      * @return[2] string A message describing why the JSON string is invalid.
      */
-    function unserializeJSON(s: string, options? :{nbt_style?: boolean, parse_null?: boolean}): [any] | [null, string];
+    function unserializeJSON(s: string, options?: {nbt_style?: boolean, parse_null?: boolean}): [any] | [null, string];
 
+    function slowWrite(sText: string, nRate?: number): void;
+    function slowPrint(sText: string, nRate?: number): void;
+    function formatTime(nTime: number, bTwentyFourHour?: boolean): string;
+    function pagedPrint(_sText: string, _nFreeLines?: number): number;
+    function tabulate(...colorOrTable: (number | string[])[]): void;
+    function pagedTabulate(...colorOrTable: (number | string[])[]): void;
 
+    const empty_json_array: [];
+    const json_null: null;
 
+    function serialize(t: any, opts?: { compact?: boolean, allow_repetitions?: boolean }): string;
+    function unserialize(s: string): any;
+    function urlEncode(str: string): string;
+    function complete(sSearchText: string, tSearchTable: any): string[];
 }
 

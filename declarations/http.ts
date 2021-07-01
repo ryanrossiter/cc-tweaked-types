@@ -63,7 +63,7 @@ declare namespace http {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/http.html#v:websocket)
      * @see [[Out of Date] ComputerCraft Wiki](https://wiki.computercraft.cc/Http.websocket)
      */
-    function websocket(url: string, headers?: Headers): lWebSocket | [ false, string ];
+    function websocket(url: string, headers?: Headers): [ lWebSocket ] | [ false, string ];
 
     /**
      * Asynchronously open a websocket.
@@ -80,7 +80,7 @@ declare namespace http {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/http.html#v:websocketAsync)
      * @see [Out of Date] ComputerCraft Wiki (Blank Docs Page)
      */
-    function websocketAsync(url: string, headers?: Headers): true | [ false, string ];
+    function websocketAsync(url: string, headers?: Headers): [true] | [ false, string ];
 
     /**
      * Asynchronously make a HTTP request to the given url.
@@ -98,7 +98,7 @@ declare namespace http {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/http.html#v:request)
      * @see [[Out of Date] ComputerCraft Wiki](https://wiki.computercraft.cc/Http.request)
      */
-    function request(url: string, body?: string, headers?: Headers, binary?: boolean): true | [ false, string ];
+    function request(url: string, body?: string, headers?: Headers, binary?: boolean): [ true ] | [ false, string ];
 
     /**
      * Asynchronously make a HTTP request to the given url.
@@ -113,7 +113,32 @@ declare namespace http {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/http.html#v:request)
      * @see [[Out of Date] ComputerCraft Wiki](https://wiki.computercraft.cc/Http.request)
      */
-    function request(request: HttpRequest): true | [ false, string ];
+    function request(request: HttpRequest): [ true ] | [ false, string ];
+
+    /**
+     * Make a HTTP GET request to the given url.
+     * @param url The url to request
+     * @param headers? Additional headers to send as part of this request.
+     * @param binary? boolean whether to make a binary http request. If true, the body will not be UTF-8 encoded, and the received response will not be decoded.
+     * @tupleReturn
+     * @return[1] Response if the request was successful
+     * or
+     * @return[1] undefined when the http request failed, such as a 404 or timeout
+     * @return[2] string a message detailing why the request failed
+     * @return[3] response or undefiened, the error reponse if available.
+     * 
+     * @see [CC: Tweaked Docs](https://tweaked.cc/module/http.html#v:gets)
+     * @see [[Out of Date] ComputerCraft Wiki](https://wiki.computercraft.cc/Http.get)
+     */
+    function get<Binary extends boolean>(url: string, headers?: Record<string, string>, binary?: Binary): [ Binary extends true ? BinaryHttpResponse : HttpResponse ] | [ undefined, string, (Binary extends true ? BinaryHttpResponse : HttpResponse) | undefined ];
+    
+    /** @tupleReturn */
+    function post<Binary extends boolean>(url: string, body: string, headers: Record<string, string>, binary?: Binary) : [ Binary extends true ? BinaryHttpResponse : HttpResponse ] | [ undefined, string, (Binary extends true ? BinaryHttpResponse : HttpResponse) ];
+
+    /** @tupleReturn */
+    function checkURLAsync(url: string): [true] | [false, string];
+    /** @tupleReturn */
+    function checkURL(url: string): [true] | [false, string];
 }
 
 /** @noSelf **/
@@ -155,4 +180,16 @@ declare class lWebSocket {
      */
     close(): void;
 
+}
+
+/** @noSelf */
+declare class HttpResponse extends WriteHandle {
+    getResponseCode(): [number, string];
+    getResponseHeaders(): Record<string, string>;
+}
+
+/** @noSelf */
+declare class BinaryHttpResponse extends BinaryWriteHandle {
+    getResponseCode(): [number, string];
+    getResponseHeaders(): Record<string, string>;
 }
