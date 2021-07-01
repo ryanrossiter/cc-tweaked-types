@@ -11,3 +11,4 @@ import './term'
 import './shell'
 
 import './turtle'
+import "../modules/cc/require";

@@ -130,7 +130,7 @@ declare namespace http {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/http.html#v:gets)
      * @see [[Out of Date] ComputerCraft Wiki](https://wiki.computercraft.cc/Http.get)
      */
-    function get<Binary extends boolean>(url: string, headers?: Record<string, string>, binary?: Binary): [ Binary extends true ? BinaryHttpResponse : HttpResponse ] | [ undefined, string, (Binary extends true ? BinaryHttpResponse : HttpResponse) | undefined ];
+    function get<Binary extends boolean>(url: string, headers?: Record<string, string>, binary?: Binary): [ boolean extends Binary ? HttpResponse : (Binary extends true ? BinaryHttpResponse : HttpResponse) ] | [ undefined, string, (Binary extends true ? BinaryHttpResponse : HttpResponse) | undefined ];
     
     /** @tupleReturn */
     function post<Binary extends boolean>(url: string, body: string, headers: Record<string, string>, binary?: Binary) : [ Binary extends true ? BinaryHttpResponse : HttpResponse ] | [ undefined, string, (Binary extends true ? BinaryHttpResponse : HttpResponse) ];
@@ -183,13 +183,13 @@ declare class lWebSocket {
 }
 
 /** @noSelf */
-declare class HttpResponse extends WriteHandle {
+declare class HttpResponse extends ReadHandle {
     getResponseCode(): [number, string];
     getResponseHeaders(): Record<string, string>;
 }
 
 /** @noSelf */
-declare class BinaryHttpResponse extends BinaryWriteHandle {
+declare class BinaryHttpResponse extends BinaryReadHandle {
     getResponseCode(): [number, string];
     getResponseHeaders(): Record<string, string>;
 }

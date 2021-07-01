@@ -139,33 +139,33 @@ declare namespace fs {
 // }
 
 declare class ReadHandle {
-    readLine(withTrailing?: boolean): string | undefined;
-    readAll(): string | undefined;
-    read(count?: number): string | undefined;
-    close(): void;
+    readLine(this: void, withTrailing?: boolean): string | undefined;
+    readAll(this: void): string | undefined;
+    read(this: void, count?: number): string | undefined;
+    close(this: void): void;
 }
 
 declare class BinaryReadHandle {
-    read(count: number): string | undefined;
-    read(): number | undefined;
-    readAll(): string | undefined;
-    readLine(withTrailing?: boolean): string | undefined;
-    close(): void;
+    read(this: void, count: number): string | undefined;
+    read(this: void): number | undefined;
+    readAll(this: void): string | undefined;
+    readLine(this: void, withTrailing?: boolean): string | undefined;
+    close(this: void): void;
     /** @tupleReturn */
-    seek(whence?: "set" | "cur" | "end", offset?: number): [number] | [undefined, string];
+    seek(this: void, whence?: "set" | "cur" | "end", offset?: number): [number] | [undefined, string];
 }
 
 declare class WriteHandle {
-    write(value: string): void;
-    writeLine(value: string): void;
-    flush(): void;
-    close(): void;
+    write(this: void, value: string): void;
+    writeLine(this: void, value: string): void;
+    flush(this: void): void;
+    close(this: void): void;
 }
 
 declare class BinaryWriteHandle {
-    write(v: number | string): void;
-    flush(): void;
+    write(this: void, v: number | string): void;
+    flush(this: void): void;
     /** @tupleReturn */
-    seek(whence?: "set" | "cur" | "end", offset?: number): [number] | [undefined, string];
-    close(): void;
+    seek(this: void, whence?: "set" | "cur" | "end", offset?: number): [number] | [undefined, string];
+    close(this: void): void;
 }
