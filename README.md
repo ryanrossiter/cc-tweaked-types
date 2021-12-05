@@ -6,3 +6,9 @@ This is a work in progress.
 If you want some part of the api to be included that I have not written the types for please submit an issue ticket and I will try to get to it asap.
 
 I am defining the types as I need them so I don't go crazy doing them all at once.
+
+## **TO INSTALL:**
+Add this to the `compilerOptions` of your tsconfig:
+```json
+"types": ["cc-tweaked-types"],
+```

@@ -4,6 +4,8 @@ import './http'
 import './fs'
 import './textutils'
 import './parallel'
+import './rednet'
+import './peripheral'
 // import './io' // conflicts with io in the lua-types
 
 import './colors'
