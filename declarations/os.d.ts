@@ -49,7 +49,6 @@ declare namespace os {
      * event, printing the error "Terminated".
      *
      * @param[opt] string filter Event to filter for.
-     * @tupleReturn
      * @return string event The name of the event that fired.
      * @return any param... Optional additional parameters of the event.
      * @usage Listen for `mouse_click` events.
@@ -76,206 +75,206 @@ declare namespace os {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(): [string, ...any[]]
-    function pullEvent(filter: string): [string, ...any[]]
+    function pullEvent(): LuaMultiReturn<[string, ...any[]]>
+    function pullEvent(filter: string): LuaMultiReturn<[string, ...any[]]>
     /**
      * Fired when text is typed on the keyboard
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      * @see [ComputerCraft Wiki(Char_event)](https://www.computercraft.info/wiki/Char_(event))
      */
-    function pullEvent(filter: "char"): Events.CharEvent
-    function pullEvent(filter: "mouse_click"): Events.MouseClickEvent
+    function pullEvent(filter: "char"): LuaMultiReturn<Events.CharEvent>
+    function pullEvent(filter: "mouse_click"): LuaMultiReturn<Events.MouseClickEvent>
     /** 
      * @return {[string, number]} event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "alarm"): Events.AlarmEvent
+    function pullEvent(filter: "alarm"): LuaMultiReturn<Events.AlarmEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "alarm"): Events.AlarmEvent
+    function pullEvent(filter: "alarm"): LuaMultiReturn<Events.AlarmEvent>
     
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "char"): Events.CharEvent
+    function pullEvent(filter: "char"): LuaMultiReturn<Events.CharEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "key"): Events.KeyEvent
+    function pullEvent(filter: "key"): LuaMultiReturn<Events.KeyEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "keyup"): Events.KeyUpEvent
+    function pullEvent(filter: "keyup"): LuaMultiReturn<Events.KeyUpEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "paste"): Events.PasteEvent
+    function pullEvent(filter: "paste"): LuaMultiReturn<Events.PasteEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "timer"): Events.TimerEvent
+    function pullEvent(filter: "timer"): LuaMultiReturn<Events.TimerEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "alarm"): Events.AlarmEvent
+    function pullEvent(filter: "alarm"): LuaMultiReturn<Events.AlarmEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "task_complete"): Events.TaskCompleteEvent
+    function pullEvent(filter: "task_complete"): LuaMultiReturn<Events.TaskCompleteEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "redstone"): Events.RedstoneEvent
+    function pullEvent(filter: "redstone"): LuaMultiReturn<Events.RedstoneEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "terminate"): Events.TerminateEvent
+    function pullEvent(filter: "terminate"): LuaMultiReturn<Events.TerminateEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "disk"): Events.DiskEvent
+    function pullEvent(filter: "disk"): LuaMultiReturn<Events.DiskEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "disk_eject"): Events.DiskEjectEvent
+    function pullEvent(filter: "disk_eject"): LuaMultiReturn<Events.DiskEjectEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "peripheral"): Events.PeripheralEvent
+    function pullEvent(filter: "peripheral"): LuaMultiReturn<Events.PeripheralEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "peripheral_detach"): Events.PeripheralDetachEvent
+    function pullEvent(filter: "peripheral_detach"): LuaMultiReturn<Events.PeripheralDetachEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "rednet_message"): Events.RednetMessageEvent
+    function pullEvent(filter: "rednet_message"): LuaMultiReturn<Events.RednetMessageEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "modem_message"): Events.ModemMessageEvent
+    function pullEvent(filter: "modem_message"): LuaMultiReturn<Events.ModemMessageEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "http_success"): Events.HttpSuccessEvent
+    function pullEvent(filter: "http_success"): LuaMultiReturn<Events.HttpSuccessEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "http_failure"): Events.HttpFailureEvent
+    function pullEvent(filter: "http_failure"): LuaMultiReturn<Events.HttpFailureEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "mouse_click"): Events.MouseClickEvent
+    function pullEvent(filter: "mouse_click"): LuaMultiReturn<Events.MouseClickEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "mouse_up"): Events.MouseUpEvent
+    function pullEvent(filter: "mouse_up"): LuaMultiReturn<Events.MouseUpEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "mouse_scroll"): Events.MouseScrollEvent
+    function pullEvent(filter: "mouse_scroll"): LuaMultiReturn<Events.MouseScrollEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "mouse_drag"): Events.MouseDragEvent
+    function pullEvent(filter: "mouse_drag"): LuaMultiReturn<Events.MouseDragEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "mouse_touch"): Events.MouseTouchEvent
+    function pullEvent(filter: "mouse_touch"): LuaMultiReturn<Events.MouseTouchEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "monitor_resize"): Events.MonitorResizeEvent
+    function pullEvent(filter: "monitor_resize"): LuaMultiReturn<Events.MonitorResizeEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "term_resize"): Events.TermResizeEvent
+    function pullEvent(filter: "term_resize"): LuaMultiReturn<Events.TermResizeEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "turtle_inventory"): Events.TurtleInventoryEvent
+    function pullEvent(filter: "turtle_inventory"): LuaMultiReturn<Events.TurtleInventoryEvent>
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "websocket_closed"): Events.WebsocketClosedEvent
+    function pullEvent(filter: "websocket_closed"): LuaMultiReturn<Events.WebsocketClosedEvent>
 
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "websocket_failure"): Events.WebsocketFailureEvent
+    function pullEvent(filter: "websocket_failure"): LuaMultiReturn<Events.WebsocketFailureEvent>
 
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "websocket_message"): Events.WebsocketMessageEvent
+    function pullEvent(filter: "websocket_message"): LuaMultiReturn<Events.WebsocketMessageEvent>
 
     /** 
      * @return event tuple 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEvent)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent)
      */
-    function pullEvent(filter: "websocket_success"): Events.WebsocketSuccessEvent
+    function pullEvent(filter: "websocket_success"): LuaMultiReturn<Events.WebsocketSuccessEvent>
 
     /**
      * [Event Types on ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEvent#Event_types)
