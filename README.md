@@ -10,5 +10,5 @@ I am defining the types as I need them so I don't go crazy doing them all at onc
 ## **TO INSTALL:**
 Add this to the `compilerOptions` of your tsconfig:
 ```json
-"types": ["cc-tweaked-types"],
+"types": ["cc-tweaked-types", "typescript-to-lua/language-extensions"],
 ```
