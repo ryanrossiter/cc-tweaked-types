@@ -23,7 +23,7 @@ declare namespace rednet {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/rednet.html#v:open)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/rednet.open)
      */
-    function open(modem: ComputerSide): void
+    function open(modem: ComputerSide | string): void
     
     /** 
      * Close a modem with the given @{peripheral} name, meaning it can no longer send and receive rednet messages.
@@ -33,7 +33,7 @@ declare namespace rednet {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/rednet.html#v:close)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/rednet.close)
      */
-    function close(modem: ComputerSide | null): void
+    function close(modem: ComputerSide | string | null): void
     
     /** Determine if rednet is currently open.
      *
@@ -42,7 +42,7 @@ declare namespace rednet {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/rednet.html#v:isOpen)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/rednet.isOpen)
      */
-    function isOpen(modem: ComputerSide): boolean
+    function isOpen(modem: ComputerSide | string): boolean
     
     /** Allows a computer or turtle with an attached modem to send a message intended for a system with a specific ID. At least one such modem must first
      * be @{rednet.open|opened} before sending is possible.
