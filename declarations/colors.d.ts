@@ -257,7 +257,6 @@ declare namespace colors {
      * ______________________________________________________________________________________________________________
      *
      * @param color The combined hexadecimal colour.
-     * @tupleReturn
      * @return number The red channel, will be between 0 and 1.
      * @return number The green channel, will be between 0 and 1.
      * @return number The blue channel, will be between 0 and 1.
@@ -268,7 +267,7 @@ declare namespace colors {
      * ```
      * @see colors.packRGB
      */
-    function unpackRGB(color: Color | ColorSet): UnpackedRGB
+    function unpackRGB(color: Color | ColorSet): LuaMultiReturn<UnpackedRGB>
 
     /**
      * Either calls {@link colors.packRGB} or {@link colors.unpackRGB}, depending on how many arguments it receives.
@@ -280,7 +279,6 @@ declare namespace colors {
      * @param[1] number g The green channel, as an argument to {@link colors.packRGB}.
      * @param[1] number b The blue channel, as an argument to {@link colors.packRGB}.
      * @param[2] number rgb The combined hexadecimal color, as an argument to {@link colors.unpackRGB}.
-     * @tupleReturn
      * @return[1] number The combined hexadecimal colour, as returned by {@link colors.packRGB}.
      * @return[2] number The red channel, as returned by {@link colors.unpackRGB}
      * @return[2] number The green channel, as returned by {@link colors.unpackRGB}
@@ -296,7 +294,7 @@ declare namespace colors {
      * => 0xb23399
      * ```
      */
-    function rgb8(r: number, g: number, b: number): [number, ...UnpackedRGB]
+    function rgb8(r: number, g: number, b: number):  LuaMultiReturn<[number, ...UnpackedRGB]>
 
     /** Phantom Type for all the minecraft colors */
     type MinecraftColor = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | 'a' | 'b' | 'c' | 'd' | 'f'

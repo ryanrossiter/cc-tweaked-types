@@ -14,14 +14,12 @@ declare namespace turtle {
      * Move the turtle forward one block.
      * ______________________________________________________________________________________________________________
      *
-     * @tupleReturn
      * @return[1] boolean Whether the turtle could successfully move.
      * @return[1] string | nil The reason the turtle could not move.
-     * @tupleReturn
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:forward)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.forward)
      */
-    function forward(): TurtleResult
+    function forward(): LuaMultiReturn<TurtleResult>
 
     /**
      * Move the turtle backwards one block.
@@ -30,11 +28,10 @@ declare namespace turtle {
      * @return The turtle command result tuple.
      * @return[1] {boolean} Whether the turtle could successfully move.
      * @return[1] {string | null} The reason the turtle could not move.
-     * @tupleReturn
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:back)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.back)
      */
-    function back(): TurtleResult
+    function back(): LuaMultiReturn<TurtleResult>
 
     /**
      * Move the turtle up one block.
@@ -43,11 +40,10 @@ declare namespace turtle {
      * @return The turtle command result tuple.
      * @return[1] {boolean} Whether the turtle could successfully move.
      * @return[1] {string | null} The reason the turtle could not move.
-     * @tupleReturn
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:up)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.up)
      */
-    function up(): TurtleResult
+    function up(): LuaMultiReturn<TurtleResult>
 
     /**
      * Move the turtle down one block.
@@ -56,11 +52,10 @@ declare namespace turtle {
      * @return The turtle command result tuple.
      * @return[1] {boolean} Whether the turtle could successfully move.
      * @return[1] {string | null} The reason the turtle could not move.
-     * @tupleReturn
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:down)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.down)
      */
-    function down(): TurtleResult
+    function down(): LuaMultiReturn<TurtleResult>
 
     /**
      * Rotate the turtle 90 degress to the left.
@@ -69,24 +64,21 @@ declare namespace turtle {
      * @return The turtle command result tuple.
      * @return[1] boolean Whether the turtle could successfully turn.
      * @return[1] string | nil The reason the turtle could not turn.
-     * @tupleReturn
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:turnLeft)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.turnLeft)
      */
-    function turnLeft(): TurtleResult
+    function turnLeft(): LuaMultiReturn<TurtleResult>
 
     /**
      * Rotate the turtle 90 degress to the right.
      * ______________________________________________________________________________________________________________
      *
-     * @tupleReturn
      * @return[1] boolean Whether the turtle could successfully turn.
      * @return[1] string | nil The reason the turtle could not turn.
-     * @tupleReturn
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:turnRight)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.turnRight)
      */
-    function turnRight(): TurtleResult
+    function turnRight(): LuaMultiReturn<TurtleResult>
 
     /**
      * Attempt to break the block in front of the turtle.
@@ -98,84 +90,77 @@ declare namespace turtle {
      * ______________________________________________________________________________________________________________
      *
      * @param side The specific tool to use. Should be "left" or "right".
-     * @tupleReturn
      * @return[1] boolean Whether a block was broken.
      * @return[2] string | nil The reason no block was broken.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:dig)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.dig)
      */
-    function dig( side?: TurtleSide ): TurtleResult
+    function dig( side?: TurtleSide ): LuaMultiReturn<TurtleResult>
 
     /**
      * Attempt to break the block above the turtle. See {@link #dig} for full details.
      * ______________________________________________________________________________________________________________
      * @param side The specific tool to use. Should be "left" or "right".
-     * @tupleReturn
      * @return[1] boolean Whether a block was broken.
      * @return[2] string | nil The reason no block was broken.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:digUp)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.digUp)
      */
-    function digUp( side?: TurtleSide ):TurtleResult
+    function digUp( side?: TurtleSide ): LuaMultiReturn<TurtleResult>
 
     /**
      * Attempt to break the block below the turtle. See {@link #dig} for full details.
      * ______________________________________________________________________________________________________________
      * @param side The specific tool to use. Should be "left" or "right".
-     * @tupleReturn
      * @return[1] boolean Whether a block was broken.
      * @return[2] string | nil The reason no block was broken.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:digDown)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.digDown)
      */
-    function digDown( side?: TurtleSide ):TurtleResult
+    function digDown( side?: TurtleSide ): LuaMultiReturn<TurtleResult>
 
     /**
      * Place a block or item into the world in front of the turtle.
      * ______________________________________________________________________________________________________________
      * @param args Arguments to place. When placing a sign, set its contents to this text.
      * @param args text When placing a sign, set its contents to this text.
-     * @tupleReturn
      * @return[1] boolean Whether the block could be placed.
      * @return[2] string | nil The reason the block was not placed.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:place)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.place)
      */
-    function place( ...args: any[] ):TurtleResult
-    function place( text: string ):TurtleResult
+    function place( ...args: any[] ): LuaMultiReturn<TurtleResult>
+    function place( text: string ): LuaMultiReturn<TurtleResult>
 
     /**
      * Place a block or item into the world above the turtle.
      * ______________________________________________________________________________________________________________
      * @param args Arguments to place. When placing a sign, set its contents to this text.
      * @param args string text When placing a sign, set its contents to this text.
-     * @tupleReturn
      * @return[1] boolean Whether the block could be placed.
      * @return[2] string | nil The reason the block was not placed.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:placeUp)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.placeUp)
      */
-    function placeUp( ...args: any[] ):TurtleResult
+    function placeUp( ...args: any[] ): LuaMultiReturn<TurtleResult>
 
     /**
      * Place a block or item into the world below the turtle.
      * ______________________________________________________________________________________________________________
      * @param args Arguments to place. When placing a sign, set its contents to this text.
      * @param args string text When placing a sign, set its contents to this text.
-     * @tupleReturn
      * @return[1] boolean Whether the block could be placed.
      * @return[2] string | nil The reason the block was not placed.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:placeDown)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.placeDown)
      */
-    function placeDown( ...args: any[] ):TurtleResult
+    function placeDown( ...args: any[] ): LuaMultiReturn<TurtleResult>
 
     /**
      * Drop the currently selected stack into the inventory in front of the turtle, or as an item into the world if
      * there is no inventory.
      * ______________________________________________________________________________________________________________
      * @param count The number of items to drop. If not given, the entire stack will be dropped.
-     * @tupleReturn
      * @throws LuaException If dropping an invalid number of items.
      * @return[1] boolean Whether items were dropped.
      * @return[2] string | nil The reason the no items were dropped.
@@ -183,7 +168,7 @@ declare namespace turtle {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:drop)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.drop)
      */
-    function drop( count?: number ): TurtleResult
+    function drop( count?: number ): LuaMultiReturn<TurtleResult>
 
     /**
      * Drop the currently selected stack into the inventory above the turtle, or as an item into the world if there is
@@ -191,7 +176,6 @@ declare namespace turtle {
      * ______________________________________________________________________________________________________________
      *
      * @param count The number of items to drop. If not given, the entire stack will be dropped.
-     * @tupleReturn
      * @throws LuaException If dropping an invalid number of items.
      * @return[1] boolean Whether items were dropped.
      * @return[2] string | nil The reason the no items were dropped.
@@ -199,7 +183,7 @@ declare namespace turtle {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:dropUp)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.dropUp)
      */
-    function dropUp( count?: number ): TurtleResult
+    function dropUp( count?: number ): LuaMultiReturn<TurtleResult>
 
     /**
      * Drop the currently selected stack into the inventory in front of the turtle, or as an item into the world if
@@ -207,7 +191,6 @@ declare namespace turtle {
      * ______________________________________________________________________________________________________________
      *
      * @param count The number of items to drop. If not given, the entire stack will be dropped.
-     * @tupleReturn
      * @throws LuaException If dropping an invalid number of items.
      * @return[1] boolean Whether items were dropped.
      * @return[2] string | nil The reason the no items were dropped.
@@ -215,7 +198,7 @@ declare namespace turtle {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:dropDown)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.dropDown)
      */
-    function dropDown( count?: number ): TurtleResult
+    function dropDown( count?: number ): LuaMultiReturn<TurtleResult>
 
     /**
      * Change the currently selected slot.
@@ -226,7 +209,6 @@ declare namespace turtle {
      * ______________________________________________________________________________________________________________
      *
      * @param slot The slot to select.
-     * @tupleReturn
      * @throws LuaException If the slot is out of range.
      * @return true When the slot has been selected.
      * @see #getSelectedSlot
@@ -321,39 +303,36 @@ declare namespace turtle {
      * ______________________________________________________________________________________________________________
      *
      * @param side The specific tool to use.
-     * @tupleReturn
      * @return[1] boolean Whether an entity was attacked.
      * @return[2] string | nil The reason nothing was attacked.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:attack)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.attack)
      */
-    function attack( side?: TurtleSide ): TurtleResult
+    function attack( side?: TurtleSide ): LuaMultiReturn<TurtleResult>
 
     /**
      * Attack the entity above the turtle.
      * ______________________________________________________________________________________________________________
      *
      * @param side The specific tool to use.
-     * @tupleReturn
      * @return[1] boolean Whether an entity was attacked.
      * @return[2] string | nil The reason nothing was attacked.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:attackUp)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.attackUp)
      */
-    function attackUp( side?: TurtleSide ): TurtleResult
+    function attackUp( side?: TurtleSide ): LuaMultiReturn<TurtleResult>
 
     /**
      * Attack the entity below the turtle.
      * ______________________________________________________________________________________________________________
      *
      * @param side The specific tool to use.
-     * @tupleReturn
      * @return[1] boolean Whether an entity was attacked.
      * @return[2] string | nil The reason nothing was attacked.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:attackDown)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.attackDown)
      */
-    function attackDown( side?: TurtleSide ): TurtleResult
+    function attackDown( side?: TurtleSide ): LuaMultiReturn<TurtleResult>
 
     /**
      * Suck an item from the inventory in front of the turtle, or from an item floating in the world.
@@ -362,14 +341,13 @@ declare namespace turtle {
      * ______________________________________________________________________________________________________________
      *
      * @param count The number of items to suck. If not given, up to a stack of items will be picked up.
-     * @tupleReturn
      * @throws LuaException If given an invalid number of items.
      * @return[1] boolean Whether items were picked up.
      * @return[2] string | nil The reason the no items were picked up.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:suck)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.suck)
      */
-    function suck( count?: number ): TurtleResult
+    function suck( count?: number ): LuaMultiReturn<TurtleResult>
 
     /**
      * Suck an item from the inventory above the turtle, or from an item floating in the world.
@@ -379,14 +357,13 @@ declare namespace turtle {
      * ______________________________________________________________________________________________________________
      *
      * @param count The number of items to suck. If not given, up to a stack of items will be picked up.
-     * @tupleReturn
      * @throws LuaException If given an invalid number of items.
      * @return[1] boolean Whether items were picked up.
      * @return[2] string | nil The reason the no items were picked up.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:suckUp)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.suckUp)
      */
-    function suckUp( count?: number ): TurtleResult
+    function suckUp( count?: number ): LuaMultiReturn<TurtleResult>
 
     /**
      * Suck an item from the inventory below the turtle, or from an item floating in the world.
@@ -396,14 +373,13 @@ declare namespace turtle {
      * ______________________________________________________________________________________________________________
      *
      * @param count The number of items to suck. If not given, up to a stack of items will be picked up.
-     * @tupleReturn
      * @throws LuaException If given an invalid number of items.
      * @return[1] boolean Whether items were picked up.
      * @return[2] string | nil The reason the no items were picked up.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:suckDown)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.suckDown)
      */
-    function suckDown( count?: number ): TurtleResult
+    function suckDown( count?: number ): LuaMultiReturn<TurtleResult>
 
     /**
      * Get the turtles current fuel level
@@ -493,7 +469,6 @@ declare namespace turtle {
      * Equips the item in the selected slot to the left of the bot it it is a valid item for that.
      *  ______________________________________________________________________________________________________________
      * Turtles may have items added to (or even removed from!) them outside of the crafting grid. If a valid item exists in the currently selected inventory slot, this command places it on the turtle's left side. If an item was already present there, it'll be placed back into the inventory in the currently selected slot (assuming it's not taken up by eg an item that the turtle couldn't equip). Both actions can be performed in one go, allowing turtles to instantly swap tools.
-     * @tupleReturn
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:equipLeft)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.equipLeft)
      * @example
@@ -501,13 +476,12 @@ declare namespace turtle {
      * turtle.equipLeft()
      */
 
-    function equipLeft(): TurtleResult
+    function equipLeft(): LuaMultiReturn<TurtleResult>
 
     /**
      * Equips the item in the selected slot to the right of the bot it it is a valid item for that.
      *  ______________________________________________________________________________________________________________
      * Turtles may have items added to (or even removed from!) them outside of the crafting grid. If a valid item exists in the currently selected inventory slot, this command places it on the turtle's right side. If an item was already present there, it'll be placed back into the inventory in the currently selected slot (assuming it's not taken up by eg an item that the turtle couldn't equip). Both actions can be performed in one go, allowing turtles to instantly swap tools.
-     * @tupleReturn
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:equipRight)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.equipRight)
      * @example
@@ -515,40 +489,37 @@ declare namespace turtle {
      * turtle.equipRight()
      */
 
-    function equipRight(): TurtleResult
+    function equipRight(): LuaMultiReturn<TurtleResult>
 
     /**
      * Get information about the block in front of the turtle.
      *  ______________________________________________________________________________________________________________
-     * @tupleReturn
      * @return[1] boolean Whether there is a block in front of the turtle.
      * @return[2] table|string Information about the block in front, or a message explaining that there is no block.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:inspect)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.inspect)
      */
-    function inspect(): TurtleResult | [true, InspectItemData]
+    function inspect(): LuaMultiReturn<TurtleResult | [true, InspectItemData]>
 
     /**
      * Get information about the block above the turtle.
      *  ______________________________________________________________________________________________________________
-     * @tupleReturn
      * @return[1] boolean Whether there is a block above the turtle.
      * @return[2] table|string Information about the above below, or a message explaining that there is no block.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:inspectUp)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.inspectUp)
      */
-    function inspectUp(): TurtleResult | [true, InspectItemData]
+    function inspectUp(): LuaMultiReturn<TurtleResult | [true, InspectItemData]>
 
     /**
      * Get information about the block below the turtle.
      *  ______________________________________________________________________________________________________________
-     * @tupleReturn
      * @return[1] boolean Whether there is a block below the turtle.
      * @return[2] table|string Information about the block below, or a message explaining that there is no block.
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/turtle.html#v:inspectDown)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Turtle.inspectDown)
      */
-    function inspectDown(): TurtleResult | [true, InspectItemData]
+    function inspectDown(): LuaMultiReturn<TurtleResult | [true, InspectItemData]>
 
     /**
      * Get detailed information about the items in the given slot.

@@ -38,9 +38,8 @@ declare class Handle {
      * the call file:seek("set") sets the position to the beginning of the file
      * (and returns 0); and the call file:seek("end") sets the position to the end
      * of the file, and returns its size.
-     * @tupleReturn
      */
-    seek(this: Handle, whence?: 'set' | 'cur' | 'end', offset?: number ): [number] | [undefined, string]
+    seek(this: Handle, whence?: 'set' | 'cur' | 'end', offset?: number ): LuaMultiReturn<[number] | [undefined, string]>
 
     /**
      * setvbuf does not seem to be implemented in ComputerCraft
@@ -54,9 +53,8 @@ declare class Handle {
      * @return[1] Handle The current file, allowing chained calls.
      * @return[2] nil If the file could not be written to.
      * @return[2] string The error message which occurred while writing.
-     * @tupleReturn
      */
-    write(self: Handle, ...args: (string | number)[]): [Handle] | [error: null, message: string]
+    write(self: Handle, ...args: (string | number)[]): LuaMultiReturn<[Handle] | [error: null, message: string]>
 }
 
 /** @noSelfInFile */
@@ -89,9 +87,8 @@ declare namespace io {
      *
      * @see Handle:close
      * @see io.output
-     * @tupleReturn
      */
-    function close(file: Handle): [true] | [ successfulClose: null, reason: string ]
+    function close(file: Handle): LuaMultiReturn<[true] | [ successfulClose: null, reason: string ]>
 
 
     /**
@@ -147,9 +144,8 @@ declare namespace io {
      * @return[1] Handle The opened file.
      * @return[2] nil In case of an error.
      * @return[2] string The reason the file could not be opened.
-     * @tupleReturn
      */
-    function open(filename: string, mode: 'r' | 'w' | 'a' | 'rb' | 'wb' | 'ab' | null): [file: Handle] | [file: null, error: string ]
+    function open(filename: string, mode: 'r' | 'w' | 'a' | 'rb' | 'wb' | 'ab' | null): LuaMultiReturn<[file: Handle] | [file: null, error: string ]>
 
     /**
      * Get or set the current output file.

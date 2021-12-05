@@ -56,14 +56,13 @@ declare namespace http {
      * @param headers? { [string] = string } Additional headers to send as part of the initial websocket connection.
      * @return Websocket The websocket connection.
      * or
-     * @tupleReturn
      * @return[1] false If the websocket connection failed.
      * @return[2] string An error message describing why the connection failed.
      * 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/http.html#v:websocket)
      * @see [[Out of Date] ComputerCraft Wiki](https://wiki.computercraft.cc/Http.websocket)
      */
-    function websocket(url: string, headers?: Headers): [ lWebSocket ] | [ false, string ];
+    function websocket(url: string, headers?: Headers): LuaMultiReturn<[ lWebSocket ] | [ false, string ]>;
 
     /**
      * Asynchronously open a websocket.
@@ -73,14 +72,13 @@ declare namespace http {
      * @param headers? { [string] = string } Additional headers to send as part of the initial websocket connection.
      * @return Returns true if websockets are enabled and the max amount of websocket connections has not been reached
      * or
-     * @tupleReturn
      * @return[1] false If the websocket connection failed.
      * @return[2] string An error message describing why the connection failed.
      * 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/http.html#v:websocketAsync)
      * @see [Out of Date] ComputerCraft Wiki (Blank Docs Page)
      */
-    function websocketAsync(url: string, headers?: Headers): [true] | [ false, string ];
+    function websocketAsync(url: string, headers?: Headers): LuaMultiReturn<[true] | [ false, string ]>;
 
     /**
      * Asynchronously make a HTTP request to the given url.
@@ -91,14 +89,13 @@ declare namespace http {
      * @param binary Whether to make a binary HTTP request. If true, the body will not be UTF-8 encoded, and the received response will not be decoded.
      * @return Returns true if http is enabled and the method is supported
      * or
-     * @tupleReturn
      * @return[1] false If the http request failed.
      * @return[2] string An error message describing why the request failed.
      * 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/http.html#v:request)
      * @see [[Out of Date] ComputerCraft Wiki](https://wiki.computercraft.cc/Http.request)
      */
-    function request(url: string, body?: string, headers?: Headers, binary?: boolean): [ true ] | [ false, string ];
+    function request(url: string, body?: string, headers?: Headers, binary?: boolean): LuaMultiReturn<[ true ] | [ false, string ]>;
 
     /**
      * Asynchronously make a HTTP request to the given url.
@@ -106,21 +103,19 @@ declare namespace http {
      * @param request Options for the request.
      * @return Returns true if http is enabled and the method is supported
      * or
-     * @tupleReturn
      * @return[1] false If the http request failed.
      * @return[2] string An error message describing why the request failed.
      * 
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/http.html#v:request)
      * @see [[Out of Date] ComputerCraft Wiki](https://wiki.computercraft.cc/Http.request)
      */
-    function request(request: HttpRequest): [ true ] | [ false, string ];
+    function request(request: HttpRequest): LuaMultiReturn<[ true ] | [ false, string ]>;
 
     /**
      * Make a HTTP GET request to the given url.
      * @param url The url to request
      * @param headers? Additional headers to send as part of this request.
      * @param binary? boolean whether to make a binary http request. If true, the body will not be UTF-8 encoded, and the received response will not be decoded.
-     * @tupleReturn
      * @return[1] Response if the request was successful
      * or
      * @return[1] undefined when the http request failed, such as a 404 or timeout
@@ -130,15 +125,12 @@ declare namespace http {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/http.html#v:gets)
      * @see [[Out of Date] ComputerCraft Wiki](https://wiki.computercraft.cc/Http.get)
      */
-    function get<Binary extends boolean>(url: string, headers?: Record<string, string>, binary?: Binary): [ boolean extends Binary ? HttpResponse : (Binary extends true ? BinaryHttpResponse : HttpResponse) ] | [ undefined, string, (Binary extends true ? BinaryHttpResponse : HttpResponse) | undefined ];
+    function get<Binary extends boolean>(url: string, headers?: Record<string, string>, binary?: Binary): LuaMultiReturn<[ boolean extends Binary ? HttpResponse : (Binary extends true ? BinaryHttpResponse : HttpResponse) ] | [ undefined, string, (Binary extends true ? BinaryHttpResponse : HttpResponse) | undefined ]>;
     
-    /** @tupleReturn */
-    function post<Binary extends boolean>(url: string, body: string, headers: Record<string, string>, binary?: Binary) : [ Binary extends true ? BinaryHttpResponse : HttpResponse ] | [ undefined, string, (Binary extends true ? BinaryHttpResponse : HttpResponse) ];
+    function post<Binary extends boolean>(url: string, body: string, headers: Record<string, string>, binary?: Binary) : LuaMultiReturn<[ Binary extends true ? BinaryHttpResponse : HttpResponse ] | [ undefined, string, (Binary extends true ? BinaryHttpResponse : HttpResponse) ]>;
 
-    /** @tupleReturn */
-    function checkURLAsync(url: string): [true] | [false, string];
-    /** @tupleReturn */
-    function checkURL(url: string): [true] | [false, string];
+    function checkURLAsync(url: string): LuaMultiReturn<[true] | [false, string]>;
+    function checkURL(url: string): LuaMultiReturn<[true] | [false, string]>;
 }
 
 /** @noSelf **/
@@ -149,7 +141,6 @@ declare class lWebSocket {
      * @param timeout? number The number of seconds to wait if no message is received.
      * @return nil If the websocket was closed while waiting, or if we timed out.
      * or
-     * @tupleReturn
      * @return[1] string The received message.
      * @return[2] boolean If this was a binary message.
      * @throws If the websocket has been closed
@@ -157,7 +148,7 @@ declare class lWebSocket {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/http.html#ty:Websocket:receive)
      * @see [[Out of Date] ComputerCraft Wiki](https://wiki.computercraft.cc/Websocket.receive)
      */
-    receive(timeout?: number): [string, boolean] | null;
+    receive(timeout?: number): LuaMultiReturn<[string, boolean] | [null]>;
 
     /**
      * Send a websocket message to the connected server.

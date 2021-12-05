@@ -25,13 +25,12 @@ declare class Redirect {
      * @param colour The colour whose palette should be fetched.
      * @return The RGB values.
      * @throws LuaException When given an invalid colour.
-     * @tupleReturn
      * @return number The red channel, will be between 0 and 1.
      * @return number The green channel, will be between 0 and 1.
      * @return number The blue channel, will be between 0 and 1.
      * @see TermMethods#setPaletteColour(IArguments) To change the palette colour.
      */
-    nativePaletteColour( colour: number ): colors.UnpackedRGB
+    nativePaletteColour( colour: number ): LuaMultiReturn<colors.UnpackedRGB>
 
     /**
      * Get the default palette value for a color.
@@ -39,13 +38,12 @@ declare class Redirect {
      * @param color The color whose palette should be fetched.
      * @return The RGB values.
      * @throws LuaException When given an invalid color.
-     * @tupleReturn
      * @return number The red channel, will be between 0 and 1.
      * @return number The green channel, will be between 0 and 1.
      * @return number The blue channel, will be between 0 and 1.
      * @see TermMethods#setPaletteColor(IArguments) To change the palette color.
      */
-    nativePaletteColor( color: number ): colors.UnpackedRGB
+    nativePaletteColor( color: number ): LuaMultiReturn<colors.UnpackedRGB>
 
     /**
      * Write {@code text} at the current cursor position, moving the cursor to the end of the text.
@@ -75,11 +73,10 @@ declare class Redirect {
      *
      * @return The cursor's position.
      * @throws LuaException (hidden) If the terminal cannot be found.
-     * @tupleReturn
      * @return number The x position of the cursor.
      * @return number The y position of the cursor.
      */
-    getCursorPos(): ScreenPosition
+    getCursorPos(): LuaMultiReturn<ScreenPosition>
 
     /**
      * Set the position of the cursor. {@link #write(IArguments) terminal writes} will begin from this position.
@@ -111,11 +108,10 @@ declare class Redirect {
      *
      * @return The terminal's size.
      * @throws LuaException (hidden) If the terminal cannot be found.
-     * @tupleReturn
      * @return number The terminal's width.
      * @return number The terminal's height.
      */
-    getSize(): ScreenSize
+    getSize(): LuaMultiReturn<ScreenSize>
 
     /**
      * Clears the terminal, filling it with the {@link #getBackgroundColour() current background colour}.
@@ -325,12 +321,11 @@ declare class Redirect {
      * @param colourArg The colour whose palette should be fetched.
      * @return The resulting colour.
      * @throws LuaException (hidden) If the terminal cannot be found.
-     * @tupleReturn
      * @return number The red channel, will be between 0 and 1.
      * @return number The green channel, will be between 0 and 1.
      * @return number The blue channel, will be between 0 and 1.
      */
-    getPaletteColour( colourArg: colors.Color ) : colors.UnpackedRGB
+    getPaletteColour( colourArg: colors.Color ) : LuaMultiReturn<colors.UnpackedRGB>
 
     /**
      * Get the current palette for a specific colour.
@@ -338,12 +333,11 @@ declare class Redirect {
      * @param colourArg The colour whose palette should be fetched.
      * @return The resulting colour.
      * @throws LuaException (hidden) If the terminal cannot be found.
-     * @tupleReturn
      * @return number The red channel, will be between 0 and 1.
      * @return number The green channel, will be between 0 and 1.
      * @return number The blue channel, will be between 0 and 1.
      */
-    getPaletteColor( colourArg: colors.Color ) : colors.UnpackedRGB
+    getPaletteColor( colourArg: colors.Color ) : LuaMultiReturn<colors.UnpackedRGB>
 
     /**
      * Returns the current terminal object of the computer.

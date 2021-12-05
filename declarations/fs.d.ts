@@ -67,12 +67,11 @@ declare namespace fs {
      * @param mode string The mode to open the file with.
      * @return FileHandle A file handle object for the file.
      * or
-     * @tupleReturn
      * @return[1] nil If the file does not exist, or cannot be opened.
      * @return[2] string | nil A message explaining why the file cannot be opened.
      * @throws If an invalid mode was specified.
      */
-    function open<Mode extends "r" | "w" | "a", Binary extends "b" | "">(path: string, mode: `${Mode}${Binary}`): [Mode extends "r" ? (Binary extends "b" ? BinaryReadHandle : ReadHandle) : (Binary extends "b" ? BinaryWriteHandle : WriteHandle)] | [null, string | null];
+    function open<Mode extends "r" | "w" | "a", Binary extends "b" | "">(path: string, mode: `${Mode}${Binary}`):  LuaMultiReturn<[Mode extends "r" ? (Binary extends "b" ? BinaryReadHandle : ReadHandle) : (Binary extends "b" ? BinaryWriteHandle : WriteHandle)] | [null, string | null]>;
 
 }
 
@@ -151,8 +150,7 @@ declare class BinaryReadHandle {
     readAll(this: void): string | undefined;
     readLine(this: void, withTrailing?: boolean): string | undefined;
     close(this: void): void;
-    /** @tupleReturn */
-    seek(this: void, whence?: "set" | "cur" | "end", offset?: number): [number] | [undefined, string];
+    seek(this: void, whence?: "set" | "cur" | "end", offset?: number): LuaMultiReturn<[number] | [undefined, string]>;
 }
 
 declare class WriteHandle {
@@ -165,7 +163,6 @@ declare class WriteHandle {
 declare class BinaryWriteHandle {
     write(this: void, v: number | string): void;
     flush(this: void): void;
-    /** @tupleReturn */
-    seek(this: void, whence?: "set" | "cur" | "end", offset?: number): [number] | [undefined, string];
+    seek(this: void, whence?: "set" | "cur" | "end", offset?: number):  LuaMultiReturn<[number] | [undefined, string]>;
     close(this: void): void;
 }

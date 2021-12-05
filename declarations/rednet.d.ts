@@ -74,7 +74,6 @@ declare namespace rednet {
     
     /** Wait for a rednet message to be received, or until `nTimeout` seconds have elapsed.
      *
-     * @tupleReturn
      * @param sProtocolFilter The protocol the received message must be sent with. If specified, any messages not sent under this protocol will be discarded.
      * @param nTimeout The number of seconds to wait if no message is received.
      * @return[1] `number` The computer which sent this message
@@ -86,7 +85,7 @@ declare namespace rednet {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/rednet.html#v:receive)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/rednet.receive)
      */
-    function receive(sProtocolFilter?: string, nTimeout?: number): ([computerID: number, message: any, protocol: string|null] | null)
+    function receive(sProtocolFilter?: string, nTimeout?: number): LuaMultiReturn<[null] | [computerID: number, message: any, protocol: string | null]>
     
     /** Register the system as "hosting" the desired protocol under the specified name. If a rednet @{rednet.lookup|lookup} is performed for that protocol (and
      * maybe name) on the same network, the registered system will automatically respond via a background process, hence providing the system performing the
