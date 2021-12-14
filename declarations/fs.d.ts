@@ -18,6 +18,8 @@ declare namespace fs {
      */
     function exists(path: string): boolean;
 
+    function isDir(path: string): boolean;
+
 
     /**
      * Returns whether a path is read-only.
