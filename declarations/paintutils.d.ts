@@ -1,6 +1,6 @@
 /** @noSelfInFile */
 declare namespace paintutils {
-    type ImageData = { __TYPE__: 'ImageData' };
+    export type ImageData = { __TYPE__: 'ImageData' };
 
     function parseImage(image: string): ImageData
     function loadImage(path: string): ImageData | null
