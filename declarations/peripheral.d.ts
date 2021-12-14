@@ -8,7 +8,7 @@ declare namespace peripheral {
     function getName(peripheral: any): string
     function call(name: string, method: string, ...args: unknown[]): any
     function wrap<T = WrappedPeripheral>(name: string): T | null
-    function find<T = WrappedPeripheral>(ty: string, filter?: (name: string, wrapped: any) => boolean): T[]
+    function find<T = WrappedPeripheral>(ty: string, filter?: (name: string, wrapped: any) => boolean): T
 
     type WrappedPeripheral = Monitor;
 
