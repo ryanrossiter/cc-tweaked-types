@@ -5,13 +5,14 @@ declare namespace peripheral {
     function getType(peripheral: string | any): string[] | null
     function hasType(peripheral: string | any, peripheral_type: string): boolean | null
     function getMethods(name: string): string[] | null
-    function getName(peripheral: any): string
+    function getName(peripheral: WrappedPeripheral): string
     function call(name: string, method: string, ...args: unknown[]): any
     function wrap<T = WrappedPeripheral>(name: string): T | null
     function find<T = WrappedPeripheral>(ty: string, filter?: (name: string, wrapped: any) => boolean): T
 
     type WrappedPeripheral = Monitor;
 
+    /** @noSelf **/
     export interface Monitor {
         setTextScale(scale :number): void
         getTextScale(): number
