@@ -362,6 +362,8 @@ declare class Redirect {
      * @return Redirect The native terminal redirect.
      */
     native(): Redirect
+
+    redirect(target: any): Redirect
 }
 
 declare const term: Redirect

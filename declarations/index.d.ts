@@ -7,6 +7,7 @@ import './parallel'
 import './rednet'
 import './peripheral'
 import './gps'
+import './paintutils'
 // import './io' // conflicts with io in the lua-types
 
 import './colors'
