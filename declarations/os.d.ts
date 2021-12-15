@@ -23,6 +23,8 @@ declare namespace os {
      */
     function loadAPI(path: string):void
 
+    function epoch(locale?: 'ingame' | 'utc' | 'local'): number
+
     /**
      * --- Unloads an API which was loaded by @{os.loadAPI}.
      * --
