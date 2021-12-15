@@ -1,6 +1,8 @@
 /** @noSelfInFile */
 declare namespace fs {
 
+    function getFreeSpace(path: string): number | "unlimited";
+
     /**
      * Returns a list of files in a directory.
      * ______________________________________________________________________________________________________________
