@@ -527,7 +527,7 @@ declare namespace os {
      * @see [CC: Tweaked Docs](https://tweaked.cc/module/os.html#v:pullEventRaw)
      * @see [[Out of Date] ComputerCraft Wiki](https://www.computercraft.info/wiki/Os.pullEventRaw)
      */
-    function pullEventRaw(filter?: string): any
+    function pullEventRaw(filter?: string): LuaMultiReturn<[string, ...any[]]>
 
     /**
      * Pauses execution for the specified number of seconds, alias of @{_G.sleep}.
