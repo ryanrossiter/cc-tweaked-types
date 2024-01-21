@@ -142,4 +142,9 @@ include standard Lua functions.
     */
     declare const _CC_DEFAULT_SETTINGS: string
 
+    declare type ItemDetails = {
+        count: number,
+        name: string
+    }
+
 // }

@@ -10,7 +10,7 @@ declare namespace peripheral {
     function wrap<T = WrappedPeripheral>(name: string): T | null
     function find<T = WrappedPeripheral>(ty: string, filter?: (name: string, wrapped: any) => boolean): T
 
-    type WrappedPeripheral = Monitor;
+    type WrappedPeripheral = Monitor | Inventory | Speaker;
 
     /** @noSelf **/
     export interface Monitor {
@@ -42,5 +42,23 @@ declare namespace peripheral {
         setPaletteColour(index: number, r: number, g: number, b: number): void
         getPaletteColor(color: number): LuaMultiReturn<[r: number, g: number, b: number]>
         getPaletteColour(colour: number): LuaMultiReturn<[r: number, g: number, b: number]>
+    }
+
+    /** @noSelf **/
+    export interface Inventory {
+        size(): number
+        list(): { [slot: number]: ItemDetails }
+        getItemDetail(slot: number): ItemDetails
+        getItemLimit(slot: number): number
+        pushItems(toName: string, fromSlot: number, limit?: number, toSlot?: number): number
+        pullItems(fromName: string, fromSlot: number, limit?: number, toSlot?: number): number
+    }
+
+    /** @noSelf **/
+    export interface Speaker {
+        stop(): void
+        playNote(instrument: string, volume?: number, pitch?: number): boolean
+        playSound(name: string, volume?: number, pitch?: number): boolean
+        playAudio(audio: number[], volume?: number): boolean
     }
 }
